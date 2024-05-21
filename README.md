@@ -1,8 +1,83 @@
-# React + Vite
+# In Da Couch!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+In Da Couch! Is a web application that allows users to find their favorite strain
+of cannabis.
 
-Currently, two official plugins are available:
+## Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Requirements
+
+For development, you will only need [Node](http://nodejs.org/) installed in your
+environment.
+
+### Install
+
+    git clone https://github.com/brockbritton/storefront.git
+    cd storefront
+    npm install
+
+### Configure app
+
+Any environment configuration steps.
+
+### Start & watch
+
+    npm run dev
+    npm start
+
+## Architecture
+
+```
+├── .eslintrc.cjs
+├── .gitignore
+├── README.md
+├── index.html
+├── package-lock.json
+├── package.json
+├── public
+│   └── vite.svg
+├── src
+│   ├── App.css
+│   ├── App.jsx
+│   ├── Components
+│   │   ├── Categories
+│   │   │   ├── Categories.text.jsx
+│   │   │   └── index.jsx
+│   │   ├── Footer
+│   │   │   ├── Footer.test.jsx
+│   │   │   └── index.jsx
+│   │   ├── Header
+│   │   │   ├── Header.test.jsx
+│   │   │   └── index.jsx
+│   │   └── Products
+│   │       ├── Products.test.jsx
+│   │       └── index.jsx
+│   ├── assets
+│   │   └── react.svg
+│   ├── index.css
+│   ├── main.jsx
+│   └── store
+│       ├── categories
+│       │   ├── categories.test.js
+│       │   └── index.js
+│       ├── index.js
+│       └── products.js
+└── vite.config.js
+```
+
+### Languages & tools
+
+- React
+- JavaScript
+- Redux
+- Vite
+- Material-UI
+
+## Change Log
+
+1.0.0
+
+## Collaborators
+
+- Isai Chaidez
+- Brock Britton
