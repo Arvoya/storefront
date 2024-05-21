@@ -3,8 +3,8 @@
 export default function Footer() {
   return (
     <footer>
-      <p>Brock Britton 2024</p>
-      <p>brockbritton@outlook.com</p>
+      <p>Brock Britton &amp; Isai Chaidez 2024</p>
+      <p>InDaCouch@gmail.com</p>
     </footer>
   );
 }

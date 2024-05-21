@@ -1,18 +1,19 @@
-# PROJECT NAME
+# In Da Couch!
 
-Project description goes here.
+In Da Couch! Is a web application that allows users to find their favorite strain
+of cannabis.
 
 ## Getting Started
 
 ### Requirements
 
-For development, you will only need [Node](http://nodejs.org/) installed in your environment.
-Please use the appropriate [Editorconfig](http://editorconfig.org/) plugin for your Editor (not mandatory).
+For development, you will only need [Node](http://nodejs.org/) installed in your
+environment.
 
 ### Install
 
-    git clone https://github.com/ORG/PROJECT.git
-    cd PROJECT
+    git clone https://github.com/brockbritton/storefront.git
+    cd storefront
     npm install
 
 ### Configure app
@@ -26,16 +27,57 @@ Any environment configuration steps.
 
 ## Architecture
 
-Describe how the project is structured.
+```
+├── .eslintrc.cjs
+├── .gitignore
+├── README.md
+├── index.html
+├── package-lock.json
+├── package.json
+├── public
+│   └── vite.svg
+├── src
+│   ├── App.css
+│   ├── App.jsx
+│   ├── Components
+│   │   ├── Categories
+│   │   │   ├── Categories.text.jsx
+│   │   │   └── index.jsx
+│   │   ├── Footer
+│   │   │   ├── Footer.test.jsx
+│   │   │   └── index.jsx
+│   │   ├── Header
+│   │   │   ├── Header.test.jsx
+│   │   │   └── index.jsx
+│   │   └── Products
+│   │       ├── Products.test.jsx
+│   │       └── index.jsx
+│   ├── assets
+│   │   └── react.svg
+│   ├── index.css
+│   ├── main.jsx
+│   └── store
+│       ├── categories
+│       │   ├── categories.test.js
+│       │   └── index.js
+│       ├── index.js
+│       └── products.js
+└── vite.config.js
+```
 
 ### Languages & tools
 
-Explain what tools are used.
+- React
+- JavaScript
+- Redux
+- Vite
+- Material-UI
 
 ## Change Log
 
-List versioned releases.
+1.0.0
 
 ## Collaborators
 
 - Isai Chaidez
+- Brock Britton

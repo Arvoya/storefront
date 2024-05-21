@@ -4,7 +4,7 @@ export default function Header() {
 
   return (
     <header>
-      <h1>Brock&apos;s Store </h1>
+      <h1>In Da Couch?</h1>
     </header>
   )
 }
