@@ -1,4 +1,3 @@
-
 const createCategory = (name, display, desc) => ({
   name,
   display,
@@ -15,7 +14,6 @@ const initialState = {
 };
 
 export const categoryReducer = (state = initialState, action) => {
-
   switch (action.type) {
     case "UPDATE":
       return {
@@ -25,11 +23,5 @@ export const categoryReducer = (state = initialState, action) => {
     default:
       return state;
   }
-}
+};
 
-export const updateCategory = (category) => {
-  return {
-    type: "UPDATE",
-    payload: category
-  }
-}

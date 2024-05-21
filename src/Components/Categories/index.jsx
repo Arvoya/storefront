@@ -1,8 +1,5 @@
-
 import { useSelector, useDispatch } from 'react-redux';
-import { updateCategory } from '../../store/categories';
-import { productFilter } from '../../store/products.js';
-import { useEffect } from 'react';
+import { updateCategory } from '../../store/global-action/actions.js';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -24,9 +21,6 @@ export default function Categories() {
     dispatch(updateCategory(''))
   };
 
-  useEffect(() => {
-    dispatch(productFilter(activeCategory))
-  }, [activeCategory, dispatch])
 
   return (
     <section>

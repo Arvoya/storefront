@@ -103,7 +103,7 @@ const initialState = {
 
 export const productReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "FILTER":
+    case "UPDATE":
       return {
         products: state.products,
         filteredProducts: state.products.filter((product) => {
@@ -119,11 +119,3 @@ export const productReducer = (state = initialState, action) => {
       return state;
   }
 };
-
-export const productFilter = (category) => {
-  return {
-    type: "FILTER",
-    payload: category,
-  };
-};
-
