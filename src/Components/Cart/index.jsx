@@ -7,6 +7,7 @@ import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import ListItem from '@mui/material/ListItem';
+import logo from '../../assets/IDC-logo.png'
 
 export default function CartDrawer() {
 
@@ -37,11 +38,12 @@ export default function CartDrawer() {
     <div style={{ margin: '45px' }}>
       <Badge
         badgeContent={cartCount}
-        color="secondary"
         onClick={toggleDrawer(true)}
-        sx={{ fontSize: '2em', cursor: 'pointer' }}
+        sx={{ fontSize: '1.75em', cursor: 'pointer', color: 'black', '.MuiBadge-badge': { backgroundColor: '#75c420', height: '1.5em', width: '1.5em', fontSize: '20px', borderRadius: '50%' } }}
       >
-        <WeekendIcon sx={{ fontSize: '2em' }} />
+        <div style={{ height: '2em' }}>
+          <img style={{ height: '100%' }} src={logo} alt="logo" />
+        </div>
       </Badge>
       <Drawer open={open} onClose={toggleDrawer(false)} anchor='right'>
         {DrawerList}
