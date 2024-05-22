@@ -12,6 +12,7 @@ import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import { green } from '@mui/material/colors';
 import Box from '@mui/material/Box';
+import { fetchProducts } from '../../store/products';
 
 
 
@@ -28,8 +29,9 @@ export default function Products() {
 
 
   useEffect(() => {
-
-  }, [filteredProducts])
+    dispatch(fetchProducts());
+    console.log(filteredProducts)
+  }, [])
 
   return (
     <>

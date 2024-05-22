@@ -1,6 +1,5 @@
 const initialState = {
   products: [],
-  cartCount: 0,
 };
 
 export const cartReducer = (state = initialState, action) => {
@@ -8,8 +7,11 @@ export const cartReducer = (state = initialState, action) => {
     case "ADD":
       return {
         products: [...state.products, action.payload],
-        cartCount: state.cartCount + 1,
       };
+    case "REMOVE":
+      return {
+        products: state.products.filter((product) => product != action.payload),
+      }
     default:
       return state;
   }
@@ -21,3 +23,11 @@ export const addToCart = (product) => {
     payload: product,
   };
 };
+
+export const removeFromCart = (product) => {
+  return {
+    type: "REMOVE",
+    payload: product,
+  };
+};
+

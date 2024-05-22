@@ -6,6 +6,8 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { useEffect } from 'react';
+import { fetchCategories } from '../../store/categories/index.js';
 
 export default function Categories() {
 
@@ -20,6 +22,10 @@ export default function Categories() {
   const clearCategory = () => {
     dispatch(updateCategory(''))
   };
+
+  useEffect(() => {
+    dispatch(fetchCategories())
+  }, [])
 
 
   return (
@@ -45,7 +51,7 @@ export default function Categories() {
                 {category.name}
               </Typography>
               <Typography variant="body2">
-                Puts you '{category.description}'
+                {category.description}
               </Typography>
             </CardContent>
             <CardActions>
