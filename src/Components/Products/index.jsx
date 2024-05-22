@@ -1,36 +1,31 @@
 
-import { useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
-import { styled } from '@mui/material/styles';
+import { useSelector, useDispatch } from 'react-redux';
+import { addToCart } from '../../store/cart';
+import { useEffect } from 'react';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions';
+import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { green } from '@mui/material/colors';
 import Box from '@mui/material/Box';
 
 
-const ExpandMore = styled((props) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-  marginLeft: 'auto',
-  transition: theme.transitions.create('transform', {
-    duration: theme.transitions.duration.shortest,
-  }),
-}));
 
 export default function Products() {
-  const [expanded, setExpanded] = useState(false);
+  const dispatch = useDispatch();
 
   const filteredProducts = useSelector(state => state.product.filteredProducts)
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+
+  const handleCart = (product) => {
+    console.log('here is the product', product)
+    dispatch(addToCart(product));
+  }
+
+
 
   useEffect(() => {
 
@@ -73,6 +68,9 @@ export default function Products() {
                 {product.description}
               </Typography>
             </CardContent>
+            <CardActions >
+              <Button size="small" onClick={() => handleCart(product)}>Add to Cart</Button>
+            </CardActions>
           </Card>
 
         })}
