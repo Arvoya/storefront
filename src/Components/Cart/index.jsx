@@ -17,7 +17,10 @@ export default function CartDrawer() {
 
   const dispatch = useDispatch()
   const cart = useSelector(state => state.cart.products)
-  console.log('here is cart', cart)
+  let total = 0;
+  cart.forEach(product => {
+    total += product.quantity
+  });
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
@@ -32,17 +35,24 @@ export default function CartDrawer() {
       <List>
         {cart.map((product, idx) => (
           <ListItem key={idx} disablePadding>
-            <Typography>{product.name}</Typography> <Button onClick={() => { dispatch(removeFromCart(product)) }}> X </Button>
+            <Typography>{product.name} {product.quantity}</Typography>
+            <Button onClick={(event) => {
+              event.stopPropagation();
+              dispatch(removeFromCart(product));
+            }}>
+              X
+            </Button>
           </ListItem>
         ))}
       </List>
+      <Typography>Total: {total}</Typography>
     </Box>
   );
 
   return (
     <div style={{ margin: '45px' }}>
       <Badge
-        badgeContent={cart.length}
+        badgeContent={total}
         onClick={toggleDrawer(true)}
         sx={{ fontSize: '1.75em', cursor: 'pointer', color: 'black', '.MuiBadge-badge': { backgroundColor: '#75c420', height: '1.5em', width: '1.5em', fontSize: '20px', borderRadius: '50%' } }}
       >
