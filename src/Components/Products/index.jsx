@@ -60,7 +60,7 @@ export default function Products() {
           '& > :not(style)': {
             m: 1,
             width: 420,
-            height: 220,
+            height: 420,
           },
         }}
       >
@@ -77,7 +77,7 @@ export default function Products() {
             />
             <CardMedia
               component="img"
-              height="10"
+              height="100"
               sx={{ objectFit: 'contain' }}
               image={product.image}
               alt={product.name}

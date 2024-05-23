@@ -5,6 +5,10 @@ import { useSelector } from 'react-redux';
 export default function CartPage() {
 
   const cart = useSelector(state => state.cart.products)
+  let total = 0;
+  cart.forEach(product => {
+    total = total + (product.price * product.quantity)
+  })
   console.log(cart)
   return (
     <Box>
@@ -13,12 +17,14 @@ export default function CartPage() {
 
         {cart.map((item, idx) => (
           <Box key={idx}>
-            <p> {item.name} </p>
-            <p> {item.description}</p>
-            <p> {item.price} </p>
+            <p>Name: {item.name} </p>
+            <p>Description: {item.description}</p>
+            <p>Price: {item.price} </p>
           </Box>
+
         )
         )}
+        <h3> Total: ${total} </h3>
       </Card>
     </Box>
   )

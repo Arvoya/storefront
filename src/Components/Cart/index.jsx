@@ -47,8 +47,8 @@ export default function CartDrawer() {
         ))}
       </List>
       <Typography>Total: {total}</Typography>
+      <Link to={{ pathname: '/cart' }} onClick={toggleDrawer(false)}> Go to Cart </Link>
 
-      <Link to={{ pathname: '/cart' }}> Go to Cart </Link>
     </Box >
   );
 

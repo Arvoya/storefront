@@ -27,7 +27,7 @@ export default function Categories() {
     dispatch(fetchCategories())
   }, [])
 
-  const wantedCategories = ["Indica", "Sativa", "Hybrid", "cleaning"]
+  const wantedCategories = ["Indica", "Sativa", "Hybrid", "Cleaning"]
   return (
     <section>
       <h2>Browse our Categories</h2>
