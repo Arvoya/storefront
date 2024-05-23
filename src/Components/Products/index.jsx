@@ -19,18 +19,35 @@ import { fetchProducts } from '../../store/products';
 export default function Products() {
   const dispatch = useDispatch();
 
-  const filteredProducts = useSelector(state => state.product.filteredProducts)
+  let filteredProducts = useSelector(state => state.product.filteredProducts)
+  const categories = useSelector(state => state.category.categories);
+  const categoryNames = categories.map(category => category.name)
 
   const handleCart = (product) => {
-    console.log('here is the product', product)
     dispatch(addToCart(product));
   }
 
+  const filterProducts = (products, categories) => {
+    let categoryFiltered = products.filter(product =>
+      categories.includes(product.category)
+    )
+
+
+    //NOTE: If we run this code, it will filter out all products as none of the categorized products have a stock greater than 0
+    // let finalProducts = categoryFiltered.filter(product =>
+    //   product.inStock > 0
+    // )
+    // return finalProducts;
+
+    return categoryFiltered;
+
+  }
+
+  filteredProducts = filterProducts(filteredProducts, categoryNames)
 
 
   useEffect(() => {
     dispatch(fetchProducts());
-    console.log(filteredProducts)
   }, [])
 
   return (
@@ -43,7 +60,7 @@ export default function Products() {
           '& > :not(style)': {
             m: 1,
             width: 420,
-            height: 420,
+            height: 220,
           },
         }}
       >
@@ -60,11 +77,12 @@ export default function Products() {
             />
             <CardMedia
               component="img"
-              height="194"
+              height="10"
               sx={{ objectFit: 'contain' }}
               image={product.image}
               alt={product.name}
             />
+
             <CardContent>
               <Typography variant="body2" color="text.secondary">
                 {product.description}
