@@ -10,6 +10,7 @@ import logo from '../../assets/IDC-logo.png'
 import { removeFromCart } from '../../store/cart';
 import Button from '@mui/material/Button';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom'
 
 export default function CartDrawer() {
 
@@ -46,7 +47,9 @@ export default function CartDrawer() {
         ))}
       </List>
       <Typography>Total: {total}</Typography>
-    </Box>
+
+      <Link to={{ pathname: '/cart' }}> Go to Cart </Link>
+    </Box >
   );
 
   return (

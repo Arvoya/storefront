@@ -34,12 +34,12 @@ export default function Products() {
 
 
     //NOTE: If we run this code, it will filter out all products as none of the categorized products have a stock greater than 0
-    // let finalProducts = categoryFiltered.filter(product =>
-    //   product.inStock > 0
-    // )
-    // return finalProducts;
+    let finalProducts = categoryFiltered.filter(product =>
+      product.inStock > 0
+    )
+    return finalProducts;
 
-    return categoryFiltered;
+    // return categoryFiltered;
 
   }
 

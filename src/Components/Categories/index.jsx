@@ -27,7 +27,7 @@ export default function Categories() {
     dispatch(fetchCategories())
   }, [])
 
-
+  const wantedCategories = ["Indica", "Sativa", "Hybrid", "cleaning"]
   return (
     <section>
       <h2>Browse our Categories</h2>
@@ -45,19 +45,21 @@ export default function Categories() {
         }}
       >
         {categories.map((category, idx) => {
-          return <Card key={idx} sx={{ minWidth: 275 }} >
-            <CardContent>
-              <Typography variant="h5" component="div">
-                {category.name}
-              </Typography>
-              <Typography variant="body2">
-                {category.description}
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button onClick={() => handleClick(category)}>Select</Button>
-            </CardActions>
-          </Card>
+          if (wantedCategories.includes(category.name)) {
+            return <Card key={idx} sx={{ minWidth: 275 }} >
+              <CardContent>
+                <Typography variant="h5" component="div">
+                  {category.name}
+                </Typography>
+                <Typography variant="body2">
+                  {category.description}
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button onClick={() => handleClick(category)}>Select</Button>
+              </CardActions>
+            </Card>
+          }
         })}
       </Box>
     </section>
