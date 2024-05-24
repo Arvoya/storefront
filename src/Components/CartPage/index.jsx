@@ -19,7 +19,9 @@ export default function CartPage() {
           <Box key={idx}>
             <p>Name: {item.name} </p>
             <p>Description: {item.description}</p>
+            <p>Quantity: {item.quantity} </p>
             <p>Price: {item.price} </p>
+            <p>Subtotal: ${item.price * item.quantity} </p>
           </Box>
 
         )

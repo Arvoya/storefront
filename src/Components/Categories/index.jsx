@@ -36,12 +36,6 @@ export default function Categories() {
       <Box
         sx={{
           display: 'flex',
-          flexWrap: 'wrap',
-          '& > :not(style)': {
-            m: 1,
-            width: 69,
-            height: 127,
-          },
         }}
       >
         {categories.map((category, idx) => {

@@ -65,34 +65,35 @@ export default function Products() {
         }}
       >
         {filteredProducts.map((product, idx) => {
-          return <Card key={idx} sx={{ maxWidth: 345 }}>
-            <CardHeader
-              avatar={
-                <Avatar sx={{ bgcolor: green[500] }} aria-label="weed">
-                  W
-                </Avatar>
-              }
-              title={product.name}
-              subheader={product.category}
-            />
-            <CardMedia
-              component="img"
-              height="100"
-              sx={{ objectFit: 'contain' }}
-              image={product.image}
-              alt={product.name}
-            />
+          return (
+            <Card key={idx} sx={{ maxWidth: 345, display: 'flex', flexDirection: 'column' }}>
+              <CardHeader
+                avatar={
+                  <Avatar sx={{ bgcolor: green[500] }} aria-label="weed">
+                    W
+                  </Avatar>
+                }
+                title={product.name}
+                subheader={product.category}
+              />
+              <CardMedia
+                component="img"
+                height="140"
+                sx={{ objectFit: 'contain' }}
+                image={product.image}
+                alt={product.name}
+              />
 
-            <CardContent>
-              <Typography variant="body2" color="text.secondary">
-                {product.description}
-              </Typography>
-            </CardContent>
-            <CardActions >
-              <Button size="small" onClick={() => handleCart(product)}>Add to Cart</Button>
-            </CardActions>
-          </Card>
-
+              <CardContent>
+                <Typography variant="body2" color="text.secondary">
+                  {product.description}
+                </Typography>
+              </CardContent>
+              <CardActions sx={{ marginTop: 'auto' }}>
+                <Button size="small" onClick={() => handleCart(product)}>Add to Cart</Button>
+              </CardActions>
+            </Card>
+          )
         })}
       </Box>
     </>
