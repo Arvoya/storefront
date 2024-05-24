@@ -13,15 +13,15 @@ function App() {
 
   return (
     <Provider store={store}>
-      <Header />
       <BrowserRouter>
+        <Header />
         <Routes>
           <Route path='/' element={<><Categories /><Products /></>} />
           <Route path="/cart" element={<CartPage />} />
           <Route path='/products/:productID' element={<ProductPage />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
-      <Footer />
     </Provider>
   )
 }

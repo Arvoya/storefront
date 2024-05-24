@@ -1,5 +1,4 @@
-
-import axios from 'axios'
+import axios from "axios";
 
 export const createProduct = (
   category,
@@ -19,7 +18,7 @@ export const createProduct = (
 
 const initialState = {
   products: [],
-  filteredProducts: []
+  filteredProducts: [],
 };
 
 export const productReducer = (state = initialState, action) => {
@@ -38,28 +37,26 @@ export const productReducer = (state = initialState, action) => {
     case "SET_PRODUCTS":
       return {
         products: action.payload,
-        filteredProducts: action.payload
-      }
+        filteredProducts: action.payload,
+      };
     default:
       return state;
   }
 };
 
-
 export const fetchProducts = () => async (dispatch) => {
   try {
-    const response = await axios.get('https://api-js401.herokuapp.com/api/v1/products');
-    const results = response.data.results;
-    dispatch(setProducts(results))
+    const response = await axios.get("http://localhost:3001/products");
+    const results = response.data;
+    dispatch(setProducts(results));
   } catch (e) {
-    console.log(e)
+    console.log(e);
   }
-}
+};
 
 export const setProducts = (array) => {
   return {
-    type: 'SET_PRODUCTS',
-    payload: array
-  }
-}
-
+    type: "SET_PRODUCTS",
+    payload: array,
+  };
+};

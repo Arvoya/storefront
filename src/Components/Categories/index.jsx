@@ -27,7 +27,7 @@ export default function Categories() {
     dispatch(fetchCategories())
   }, [])
 
-  const wantedCategories = ["Indica", "Sativa", "Hybrid", "cleaning"]
+  const wantedCategories = ["Indica", "Sativa", "Hybrid", "Cleaning"]
   return (
     <section>
       <h2>Browse our Categories</h2>
@@ -36,12 +36,6 @@ export default function Categories() {
       <Box
         sx={{
           display: 'flex',
-          flexWrap: 'wrap',
-          '& > :not(style)': {
-            m: 1,
-            width: 69,
-            height: 127,
-          },
         }}
       >
         {categories.map((category, idx) => {
