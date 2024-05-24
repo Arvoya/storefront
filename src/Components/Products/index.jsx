@@ -34,12 +34,12 @@ export default function Products() {
 
 
     //NOTE: If we run this code, it will filter out all products as none of the categorized products have a stock greater than 0
-    // let finalProducts = categoryFiltered.filter(product =>
-    //   product.inStock > 0
-    // )
-    // return finalProducts;
+    let finalProducts = categoryFiltered.filter(product =>
+      product.inStock > 0
+    )
+    return finalProducts;
 
-    return categoryFiltered;
+    // return categoryFiltered;
 
   }
 
@@ -60,39 +60,40 @@ export default function Products() {
           '& > :not(style)': {
             m: 1,
             width: 420,
-            height: 220,
+            height: 420,
           },
         }}
       >
         {filteredProducts.map((product, idx) => {
-          return <Card key={idx} sx={{ maxWidth: 345 }}>
-            <CardHeader
-              avatar={
-                <Avatar sx={{ bgcolor: green[500] }} aria-label="weed">
-                  W
-                </Avatar>
-              }
-              title={product.name}
-              subheader={product.category}
-            />
-            <CardMedia
-              component="img"
-              height="10"
-              sx={{ objectFit: 'contain' }}
-              image={product.image}
-              alt={product.name}
-            />
+          return (
+            <Card key={idx} sx={{ maxWidth: 345, display: 'flex', flexDirection: 'column' }}>
+              <CardHeader
+                avatar={
+                  <Avatar sx={{ bgcolor: green[500] }} aria-label="weed">
+                    W
+                  </Avatar>
+                }
+                title={product.name}
+                subheader={product.category}
+              />
+              <CardMedia
+                component="img"
+                height="140"
+                sx={{ objectFit: 'contain' }}
+                image={product.image}
+                alt={product.name}
+              />
 
-            <CardContent>
-              <Typography variant="body2" color="text.secondary">
-                {product.description}
-              </Typography>
-            </CardContent>
-            <CardActions >
-              <Button size="small" onClick={() => handleCart(product)}>Add to Cart</Button>
-            </CardActions>
-          </Card>
-
+              <CardContent>
+                <Typography variant="body2" color="text.secondary">
+                  {product.description}
+                </Typography>
+              </CardContent>
+              <CardActions sx={{ marginTop: 'auto' }}>
+                <Button size="small" onClick={() => handleCart(product)}>Add to Cart</Button>
+              </CardActions>
+            </Card>
+          )
         })}
       </Box>
     </>

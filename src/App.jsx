@@ -3,18 +3,25 @@ import Header from './Components/Header';
 import Footer from './Components/Footer';
 import Categories from './Components/Categories';
 import Products from './Components/Products';
+import CartPage from './Components/CartPage'
+import ProductPage from './Components/ProductPage';
 import store from './store';
 import { Provider } from 'react-redux';
-import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
 
   return (
     <Provider store={store}>
-      <Header />
-      <Categories />
-      <Products />
-      <Footer />
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path='/' element={<><Categories /><Products /></>} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path='/products/:productID' element={<ProductPage />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     </Provider>
   )
 }
